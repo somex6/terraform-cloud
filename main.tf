@@ -92,10 +92,10 @@ module "compute" {
 
 
 
-resource "aws_instance" "web" {
-  ami           = lookup(var.images, var.region, "ami-12323")
-  instance_type = "t2.micro"
-}
+# resource "aws_instance" "web" {
+#   ami           = lookup(var.images, var.region, "ami-12323")
+#   instance_type = "t2.micro"
+# }
 
 
 

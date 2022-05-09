@@ -1,19 +1,25 @@
+
+variable "db-username" {
+  type        = string
+  description = "The master user name"
+}
+
+
+variable "db-password" {
+  type        = string
+  description = "Master password"
+}
+
+variable "db-sg" {
+  type = list
+  description = "The DB security group"
+}
+
 variable "private_subnets" {
-  description = ""
+  type        = list
+  description = "Private subnets fro DB subnets group"
 }
 
-variable "master-username" {
-  description = ""
-}
-
-variable "master-password" {
-  description = ""
-}
-
-variable "rds-sg" {
-  type        = list(any)
-  description = ""
-}
 
 variable "tags" {
   description = "A mapping of tags to assign to all resources."

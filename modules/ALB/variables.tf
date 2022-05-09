@@ -1,36 +1,44 @@
-variable "ext-alb-sg" {
-  type        = string
-  description = "The security group for the external load balancer"
+# The security froup for external loadbalancer
+variable "public-sg" {
+  description = "Security group for external load balancer"
 }
 
+
+# The public subnet froup for external loadbalancer
 variable "public-sbn-1" {
-  description = "public subnet to deploy external load balancer"
+  description = "Public subnets to deploy external ALB"
+}
+variable "public-sbn-2" {
+  description = "Public subnets to deploy external  ALB"
 }
 
-variable "public-sbn-2" {
-  description = "public subnet to deploy external load balancer"
+
+variable "vpc_id" {
+  type        = string
+  description = "The vpc ID"
+}
+
+
+variable "private-sg" {
+  description = "Security group for Internal Load Balance"
+}
+
+variable "private-sbn-1" {
+  description = "Private subnets to deploy Internal ALB"
+}
+variable "private-sbn-2" {
+  description = "Private subnets to deploy Internal ALB"
 }
 
 variable "ip_address_type" {
   type        = string
-  description = "the type of ip address"
+  description = "IP address for the ALB"
+
 }
 
 variable "load_balancer_type" {
   type        = string
-  description = "The type of load balancer to be deployed"
-}
-
-variable "int-alb-sg" {
-  description = "security group for the internal load balancer"
-}
-
-variable "private-sbn-1" {
-  description = "private subnet to deploy internal load balancer"
-}
-
-variable "private-sbn-2" {
-  description = "private subnet to deploy internal load balancer"
+  description = "te type of Load Balancer"
 }
 
 variable "tags" {
@@ -39,38 +47,9 @@ variable "tags" {
   default     = {}
 }
 
-variable "vpc_id" {
-  type        = string
-  description = "The VPC ID"
-}
 
-variable "alb_dns_name" {
-  type        = string
-  description = ""
+variable "name" {
+    type = string
+    description = "name of the loadbalancer"
+  
 }
-
-variable "tooling-tgt" {
-  type = string
-  description = ""
-}
-
-variable "ext_alb" {
-  type = string
-  description = ""
-}
-
-variable "int_alb" {
-  type = string
-  description = ""
-}
-
-variable "nginx-tgt" {
-  type = string
-  description = ""
-}
-
-variable "wordpress-tgt" {
-  type = string
-  description = ""
-}
-

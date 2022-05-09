@@ -7,7 +7,7 @@ resource "aws_instance" "Jenkins" {
   associate_public_ip_address = true
   key_name                    = var.keypair
 
-  tags = merge(
+ tags = merge(
     var.tags,
     {
       Name = "ACS-Jenkins"
@@ -26,10 +26,10 @@ resource "aws_instance" "sonbarqube" {
   key_name                    = var.keypair
 
 
-  tags = merge(
+   tags = merge(
     var.tags,
     {
-      Name = "ACS-sonbarqube"
+      Name = "ACS-sonarqube"
     },
   )
 }

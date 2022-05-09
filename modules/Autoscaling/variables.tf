@@ -1,84 +1,88 @@
-variable "instance-profile" {
+variable "ami-web" {
   type        = string
-  description = "EC2 IAM permission"
+  description = "ami for webservers"
 }
 
-variable "nginx-sg" {
-  type        = list(any)
-  description = ""
+variable "instance_profile" {
+  type        = string
+  description = "Instance profile for launch template"
 }
 
-variable "bastion-sg" {
-  type        = list(any)
-  description = ""
-}
 
-variable "webserver-sg" {
-  type        = list(any)
-  description = ""
+variable "keypair" {
+  type        = string
+  description = "Keypair for instances"
 }
 
 variable "ami-bastion" {
   type        = string
-  description = ""
+  description = "ami for bastion"
 }
+
+variable "web-sg" {
+  type = list
+  description = "security group for webservers"
+}
+
+variable "bastion-sg" {
+  type = list
+  description = "security group for bastion"
+}
+
+variable "nginx-sg" {
+  type = list
+  description = "security group for nginx"
+}
+
+variable "private_subnets" {
+  type = list
+  description = "first private subnets for internal ALB"
+}
+
+
+variable "public_subnets" {
+  type = list
+  description = "Seconf subnet for ecternal ALB"
+}
+
 
 variable "ami-nginx" {
   type        = string
-  description = ""
+  description = "ami for nginx"
 }
 
-variable "ami-web" {
-  type        = string
-  description = ""
+variable "nginx-alb-tgt" {
+  description = "nginx reverse proxy target group"
 }
+
+variable "wordpress-alb-tgt" {
+  description = "wordpress target group"
+}
+
+
+variable "tooling-alb-tgt" {
+  description = "tooling target group"
+}
+
 
 variable "max_size" {
   type        = number
-  description = ""
+  description = "maximum number for autoscaling"
 }
 
 variable "min_size" {
   type        = number
-  description = ""
+  description = "minimum number for autoscaling"
 }
 
 variable "desired_capacity" {
   type        = number
-  description = ""
-}
+  description = "Desired number of instance in autoscaling group"
 
-variable "public_subnets" {
-  type        = list(any)
-  description = ""
-}
-
-variable "private_subnets" {
-  type        = list(any)
-  description = ""
 }
 
 variable "tags" {
   description = "A mapping of tags to assign to all resources."
   type        = map(string)
   default     = {}
-}
-
-variable "keypair" {
-  description = ""
-}
-
-variable "nginx-tgt" {
-  type = string
-  description = ""
-}
-
-variable "tooling-tgt" {
-  type = string
-  description = ""
-}
-
-variable "wordpress-tgt" {
-  type = string
-  description = ""
 }

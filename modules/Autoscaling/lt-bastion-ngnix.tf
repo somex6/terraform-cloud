@@ -29,7 +29,7 @@ resource "aws_launch_template" "bastion-launch-template" {
     )
   }
 
-  user_data = filebase64("${path.module}/bastion.sh")
+  # user_data = filebase64("${path.module}/bastion.sh")
 }
 
 # launch template for nginx
@@ -64,5 +64,5 @@ resource "aws_launch_template" "nginx-launch-template" {
     )
   }
 
-  user_data = filebase64("${path.module}/nginx.sh")
+  # user_data = filebase64("${path.module}/nginx.sh")
 }

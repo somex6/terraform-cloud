@@ -48,8 +48,8 @@ module "ALB" {
   source             = "./modules/ALB"
   name               = "ACS-ext-alb"
   vpc_id             = module.VPC.vpc_id
-  public-sg          = module.security.ALB-sg
-  private-sg         = module.security.IALB-sg
+  public-sg          = module.Security.ALB-sg
+  private-sg         = module.Security.IALB-sg
   public-sbn-1       = module.VPC.public_subnets-1
   public-sbn-2       = module.VPC.public_subnets-2
   private-sbn-1      = module.VPC.private_subnets-1
@@ -72,9 +72,9 @@ module "AutoScaling" {
   desired_capacity  = 1
   min_size          = 1
   max_size          = 1
-  web-sg            = [module.security.web-sg]
-  bastion-sg        = [module.security.bastion-sg]
-  nginx-sg          = [module.security.nginx-sg]
+  web-sg            = [module.Security.web-sg]
+  bastion-sg        = [module.Security.bastion-sg]
+  nginx-sg          = [module.Security.nginx-sg]
   wordpress-alb-tgt = module.ALB.wordpress-tgt
   nginx-alb-tgt     = module.ALB.nginx-tgt
   tooling-alb-tgt   = module.ALB.tooling-tgt
@@ -102,7 +102,7 @@ module "RDS" {
   source          = "./modules/RDS"
   db-password     = var.master-password
   db-username     = var.master-username
-  db-sg           = [module.security.datalayer-sg]
+  db-sg           = [module.Security.datalayer-sg]
   private_subnets = [module.VPC.private_subnets-3, module.VPC.private_subnets-4]
 }
 
@@ -113,6 +113,6 @@ module "compute" {
   ami-sonar       = var.ami-sonar
   ami-jfrog       = var.ami-bastion
   subnets-compute = module.VPC.public_subnets-1
-  sg-compute      = [module.security.compute-sg]
+  sg-compute      = [module.Security.compute-sg]
   keypair         = var.keypair
 }

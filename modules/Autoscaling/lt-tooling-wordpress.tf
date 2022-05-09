@@ -1,7 +1,7 @@
 # launch template for wordpress
 
 resource "aws_launch_template" "wordpress-launch-template" {
-  image_id               = var.ami-webserver
+  image_id               = var.ami-web
   instance_type          = "t2.micro"
   vpc_security_group_ids = var.webserver-sg
 
@@ -36,7 +36,7 @@ resource "aws_launch_template" "wordpress-launch-template" {
 
 # launch template for toooling
 resource "aws_launch_template" "tooling-launch-template" {
-  image_id               = var.ami-webserver
+  image_id               = var.ami-web
   instance_type          = "t2.micro"
   vpc_security_group_ids = var.webserver-sg
 

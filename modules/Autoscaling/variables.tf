@@ -28,7 +28,7 @@ variable "ami-nginx" {
   description = ""
 }
 
-variable "ami-webserver" {
+variable "ami-web" {
   type        = string
   description = ""
 }

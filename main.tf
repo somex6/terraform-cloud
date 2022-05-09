@@ -40,9 +40,9 @@ module "security" {
 
 module "AutoScaling" {
   source           = "./modules/Autoscaling"
-  ami-bastion      = var.ami
-  ami-nginx        = var.ami
-  ami-webserver    = var.ami
+  ami-bastion      = var.ami-bastion
+  ami-nginx        = var.ami-nginx 
+  ami-web    = var.ami-web 
   max_size         = 2
   min_size         = 2
   desired_capacity = 2

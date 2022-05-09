@@ -33,8 +33,7 @@ ami-bastion = "ami-078271667e170f1ce"
 
 ami-nginx = "ami-0da4e6e3b12052ac6"
 
-ami-sonar = "ami-03889bbeff2c817d8"
-
+ami = "ami-03889bbeff2c817d8"
 
 keypair = "project1"
 

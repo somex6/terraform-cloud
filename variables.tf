@@ -38,6 +38,11 @@ variable "name" {
 
 }
 
+variable "max_subnets" {
+  type        = number
+  description = "Number of public subnets"
+}
+
 variable "tags" {
   description = "A mapping of tags to assign to all resources."
   type        = map(string)

@@ -11,7 +11,7 @@ resource "aws_sns_topic" "ACS-sns" {
 
 
 # creating notification for all the auto scaling groups
-resource "aws_autoscaling_notification" "david_notifications" {
+resource "aws_autoscaling_notification" "somex_notifications" {
   group_names = [
     aws_autoscaling_group.bastion-asg.name,
     aws_autoscaling_group.nginx-asg.name,
@@ -92,8 +92,8 @@ resource "aws_autoscaling_group" "nginx-asg" {
 }
 
 # attaching autoscaling group of nginx to external load balancer
-resource "aws_autoscaling_attachment" "asg_attachment_nginx" {
-  autoscaling_group_name = aws_autoscaling_group.nginx-asg.id
-  lb_target_group_arn    = var.nginx-alb-tgt
-}
+# resource "aws_autoscaling_attachment" "asg_attachment_nginx" {
+#   autoscaling_group_name = aws_autoscaling_group.nginx-asg.id
+#   lb_target_group_arn    = var.nginx-alb-tgt
+# }
 
